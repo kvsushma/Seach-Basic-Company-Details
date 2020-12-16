@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	before_action :authenticate_user!
 
 	def search
 		@cin = params[:cin]
@@ -18,5 +19,7 @@ class PagesController < ApplicationController
 
 	def history
 		@user_history = History.where(:user_id=> current_user.id)
+		@user_history = @user_history.paginate(page: params[:page], :per_page => 2)
 	end
 end
+

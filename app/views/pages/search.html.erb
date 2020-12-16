@@ -1,58 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">MyApp</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-    
-    <%= form_tag(search_page_path, :method => "get", class: 'form-inline mr-auto') do %>  
-    <div class="input-group">  
-      <%= search_field_tag :cin, params[:cin], placeholder: "Search with CIN ", class: "form-control mr-sm-2" %>  
-      <div class="input-group-btn">  
-        <%= button_tag "search", :class => ' btn btn-outline-success my-2 my-sm-0 btn btn-info glyphicon glyphicon-search',:name => nil%>  
-      </div>  
-    </div>  
-  <% end %>
+<%= render 'layouts/nav' %>
 
-    <ul class="navbar-nav my-2 my-lg-0 ">
-      <% if current_user.present?%>
-        <li> <a class="nav-link" href="/history">  History </a></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder ml-3"%></li>
-      <% else %>
-        <li class="nav-item active">
-        <a class="nav-link" href="/users/sign_in"> Login <span class="sr-only">(current)</span></a>
-      </li>
-     <% end %>
-    </ul>
+<div class="container mt-4 ">
+  <div class="row justify-content-md-cente mt-4r">
+    <div class="col-md-12 mt-4">
+      <%= form_tag(search_page_path, :method => "get", class: 'form-inline mr-auto') do %>  
+        <div class="input-group">  
+          <%= search_field_tag :cin, params[:cin], placeholder: "Search with CIN ", class: "form-control mr-sm-2" %>  
+          <div class="input-group-btn">  
+            <%= button_tag "search", :class => ' btn btn-outline-success my-2 my-sm-0 btn btn-info glyphicon glyphicon-search',:name => nil%> 
+          </div>  
+        </div>  
+      <% end %>
+
+      <% if @company_info.present?%>
+        <table class="table mt-4">
+        <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Listed Status</th>
+              <th scope="col">Industry Code</th>
+              <th scope="col">State Code</th>
+              <th scope="col">Incorporation Year</th>
+              <th scope="col">Ownership Status</th>
+              <th scope="col">Registered Number</th>
+              <th scope="col">CIN </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <%= @company_info.id %> </td>
+              <td> <%=  ListingStatus.find(@company_info.listing_status_id).abbrevation %> </td>
+              <td> <%= @company_info.industry_code%></td>
+              <td><%= StateCode.find(@company_info.state_code_id).abbrevation %></td>
+              <td><%=  @company_info.incorpration_year%> </td>
+              <td><%= OwnershipStatus.find(@company_info.ownership_status_id).abbrevation %> </td>
+              <td> <%=  @company_info.registration_number %> </td>
+              <td><%= @company_info.cin %></td>
+            </tr>
+          </tbody>
+        </table>
+      <%end%>
+    </div>
   </div>
-</nav>
+</div>
 
-<% if @company_info.present?%>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Listed Status</th>
-          <th scope="col">Industry Code</th>
-          <th scope="col">State Code</th>
-          <th scope="col">Incorporation Year</th>
-          <th scope="col">Ownership Status</th>
-          <th scope="col">Registered Number</th>
-          <th scope="col">CIN </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td> <%= @company_info.id %> </td>
-          <td> <%=  ListingStatus.find(@company_info.listing_status_id).abbrevation %> </td>
-          <td> <%= @company_info.industry_code%></td>
-          <td><%= StateCode.find(@company_info.state_code_id).abbrevation %></td>
-          <td><%=  @company_info.incorpration_year%> </td>
-          <td><%= OwnershipStatus.find(@company_info.ownership_status_id).abbrevation %> </td>
-          <td> <%=  @company_info.registration_number %> </td>
-          <td><%= @company_info.cin %></td>
-        </tr>
-      </tbody>
-    </table>
-<%end%>
+
+

@@ -40,9 +40,17 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'devise-bootstrap-views', '~> 1.0'
+
 gem 'jquery-rails'
 
 gem 'mini_racer', platforms: :ruby
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'pry', '~> 0.13.1'
+
+gem 'will_paginate-bootstrap4'
 
 
 group :development, :test do

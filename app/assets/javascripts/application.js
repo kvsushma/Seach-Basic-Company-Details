@@ -17,3 +17,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+function resetForm() {
+    document.getElementById("myForm").reset();
+}
