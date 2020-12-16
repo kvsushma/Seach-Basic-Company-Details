@@ -17,10 +17,10 @@
 
      <ul class="navbar-nav my-2 my-lg-0 ">
      
-      <li> History</li>
+    
       <% if current_user.present?%>
-
-      <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder ml-3"%></li>
+        <li> History</li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder ml-3"%></li>
       <% else %>
         <li class="nav-item active">
         <a class="nav-link" href="/users/sign_in"> Login <span class="sr-only">(current)</span></a>

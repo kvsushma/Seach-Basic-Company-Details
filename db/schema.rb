@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_045159) do
+ActiveRecord::Schema.define(version: 2020_12_16_061522) do
+
+  create_table "companyinfos", force: :cascade do |t|
+    t.string "cin"
+    t.integer "listing_status_id"
+    t.string "state_code_id"
+    t.integer "industry_code"
+    t.integer "incorpration_year"
+    t.string "ownership_status_id"
+    t.integer "registration_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listing_statuses", force: :cascade do |t|
+    t.string "code"
+    t.string "abbrevation"
+  end
+
+  create_table "ownership_statuses", force: :cascade do |t|
+    t.string "code"
+    t.string "abbrevation"
+  end
+
+  create_table "state_codes", force: :cascade do |t|
+    t.string "code"
+    t.string "abbrevation"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
