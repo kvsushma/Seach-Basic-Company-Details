@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MyApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    
+    <%= form_tag(search_page_path, :method => "get", class: 'form-inline mr-auto') do %>  
+    <div class="input-group">  
+      <%= search_field_tag :cin, params[:cin], placeholder: "Search with CIN ", class: "form-control mr-sm-2" %>  
+      <div class="input-group-btn">  
+        <%= button_tag "search", :class => ' btn btn-outline-success my-2 my-sm-0 btn btn-info glyphicon glyphicon-search',:name => nil%>  
+      </div>  
+    </div>  
+  <% end %>
+
+     <ul class="navbar-nav my-2 my-lg-0 ">
+     
+      <li> History</li>
+      <% if current_user.present?%>
+
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder ml-3"%></li>
+      <% else %>
+        <li class="nav-item active">
+        <a class="nav-link" href="/users/sign_in"> Login <span class="sr-only">(current)</span></a>
+      </li>
+     <% end %>
+    </ul>
+  </div>
+</nav>
