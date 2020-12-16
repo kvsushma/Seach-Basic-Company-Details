@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Module is feature packed build with ruby 2.5 and rails 5.2 and comes with a search functionality where they can find basic company details usign CIN ( Corporate Identity Number )
 
-Things you may want to cover:
+User authentication
 
-* Ruby version
+Search 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User History 
