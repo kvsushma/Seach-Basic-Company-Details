@@ -1,0 +1,3 @@
+class Companyinfo < ApplicationRecord
+
+end

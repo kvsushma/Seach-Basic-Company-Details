@@ -1,0 +1,3 @@
+class ListingStatus < ApplicationRecord
+
+end

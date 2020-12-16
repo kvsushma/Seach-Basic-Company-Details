@@ -1,0 +1,3 @@
+class OwnershipStatus < ApplicationRecord
+
+end
