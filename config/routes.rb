@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   	get '/search' => 'pages#search', :as => 'search_page'
   	
 	post '/search/:id' , to: 'pages#search'
+
+	get '/history' => 'pages#history'
 end

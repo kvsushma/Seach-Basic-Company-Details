@@ -14,4 +14,8 @@ class PagesController < ApplicationController
 				:registration_number=> @registration_number)
 		end
 	end
+
+	def history
+
+	end
 end
