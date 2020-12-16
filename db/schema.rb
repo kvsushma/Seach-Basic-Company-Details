@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_061522) do
+ActiveRecord::Schema.define(version: 2020_12_16_070011) do
 
   create_table "companyinfos", force: :cascade do |t|
     t.string "cin"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2020_12_16_061522) do
     t.integer "registration_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "companyinfo_id"
   end
 
   create_table "listing_statuses", force: :cascade do |t|

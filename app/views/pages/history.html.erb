@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Listed Status</th>
+      <th scope="col">Industry Code</th>
+      <th scope="col">State Code</th>
+      <th scope="col">Incorporation Year</th>
+      <th scope="col">Ownership Status</th>
+      <th scope="col">Registered Number</th>
+      <th scope="col">CIN </th>
+    </tr>
+  </thead>
+  	<%  @user_history.each do |u|%>
+  		<% Companyinfo.where(:id=> u.companyinfo_id).each do |company_info| %>
+	     	<tbody>
+		        <tr>
+		          <td> <%= company_info.id %> </td>
+		          <td> <%=  ListingStatus.find(company_info.listing_status_id).abbrevation %> </td>
+		          <td> <%= company_info.industry_code%></td>
+		          <td><%= StateCode.find(company_info.state_code_id).abbrevation %></td>
+		          <td><%=  company_info.incorpration_year%> </td>
+		          <td><%= OwnershipStatus.find(company_info.ownership_status_id).abbrevation %> </td>
+		          <td> <%=  company_info.registration_number %> </td>
+		          <td><%= company_info.cin %></td>
+		        </tr>
+	      	</tbody>
+    	<% end %>
+	<% end %>
+</table>

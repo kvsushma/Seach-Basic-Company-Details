@@ -12,10 +12,11 @@ class PagesController < ApplicationController
 			@company_info = Companyinfo.create!(:cin=>@cin, :listing_status_id=> @listing_status_id, :state_code_id=> @state_code_id , 
 				:industry_code=>@industry_code, :incorpration_year=>@year, :ownership_status_id=>@ownership_status_id , 
 				:registration_number=> @registration_number)
+			@history = History.create!(:companyinfo_id => @company_info.id , :user_id=> current_user.id)
 		end
 	end
 
 	def history
-
+		@user_history = History.where(:user_id=> current_user.id)
 	end
 end
